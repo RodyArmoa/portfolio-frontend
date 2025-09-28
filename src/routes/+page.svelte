@@ -29,14 +29,17 @@
 <main>
   <Hero />
   <Skills />
-  <section>
-    <h2>Proyectos Destacados</h2>
+ <section id="proyectos" class="max-w-4xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">
+      Proyectos Destacados
+    </h2>
+    
     {#if isLoading}
-      <p>Cargando proyectos...</p>
+      <p class="text-center">Cargando proyectos...</p>
     {:else if error}
-      <p style="color: red;">Error: {error}</p>
+      <p class="text-center text-red-500">Error: {error}</p>
     {:else}
-      <div style="display: grid; gap: 1.5rem;">
+      <div class="grid gap-8">
         {#each projects as project}
           <ProjectCard {project} />
         {/each}
