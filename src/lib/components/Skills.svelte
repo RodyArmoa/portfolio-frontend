@@ -15,7 +15,7 @@
   import sonarqube_logo from '$lib/assets/logos/sonarqube.svg';
   
 
-  // Creamos una lista de objetos, donde cada objeto tiene el nombre y el logo.
+  // Creamos una lista de objetos, donde cada objeto tiene el nombre y el logo. Svelte se encargará de renderizarlo.
   const skills = [
     { name: 'Java', logo: java_logo },
     { name: 'Spring Boot', logo: spring_logo },
