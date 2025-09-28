@@ -1,36 +1,21 @@
 <script>
-  // Importamos los logos directamente. SvelteKit se encarga de optimizarlos.
-  import java_logo from '$lib/assets/logos/java.svg';
-  import spring_logo from '$lib/assets/logos/spring.svg';
-  import svelte_logo from '$lib/assets/logos/svelte.svg';
-  import mysql_logo from '$lib/assets/logos/mysql.svg';
-  import github_logo from '$lib/assets/logos/github.svg';
-  import docker_logo from '$lib/assets/logos/docker.svg';
-  import jira_logo from '$lib/assets/logos/jira.svg';
-  import androidstudio_logo from '$lib/assets/logos/androidstudio.svg';
-  import postman_logo from '$lib/assets/logos/postman.svg';
-  import html_logo from '$lib/assets/logos/html.svg';
-  import css_logo from '$lib/assets/logos/css3.svg';
-  import oracle_logo from '$lib/assets/logos/oracle.svg';
-  import sonarqube_logo from '$lib/assets/logos/sonarqube.svg';
-  
 
-  // Creamos una lista de objetos, donde cada objeto tiene el nombre y el logo. Svelte se encargará de renderizarlo.
+
+  // Creamos la lista de objetos, pero ahora el 'logo' es una simple URL de texto.
   const skills = [
-    { name: 'Java', logo: java_logo },
-    { name: 'Spring Boot', logo: spring_logo },
-    { name: 'SvelteKit', logo: svelte_logo },
-    { name: 'MySQL', logo: mysql_logo },
-    { name: 'Git', logo: github_logo },
-    { name: 'Docker', logo: docker_logo },
-    { name: 'Jira', logo: jira_logo },
-    { name: 'Android Studio', logo: androidstudio_logo },
-    { name: 'Postman', logo: postman_logo },  
-    { name: 'HTML5', logo: html_logo },
-    { name: 'CSS3', logo: css_logo },
-    { name: 'Oracle DB', logo: oracle_logo },
-    { name: 'SonarQube', logo: sonarqube_logo }
-    
+    { name: 'Java', logo: '/logos/java.svg' },
+    { name: 'Spring Boot', logo: '/logos/spring.svg' },
+    { name: 'SvelteKit', logo: '/logos/svelte.svg' },
+    { name: 'MySQL', logo: '/logos/mysql.svg' },
+    { name: 'Git', logo: '/logos/github.svg' },
+    { name: 'Docker', logo: '/logos/docker.svg' },
+    { name: 'Jira', logo: '/logos/jira.svg' },
+    { name: 'Android Studio', logo: '/logos/androidstudio.svg' },
+    { name: 'Postman', logo: '/logos/postman.svg' },
+    { name: 'HTML5', logo: '/logos/html.svg' },
+    { name: 'CSS3', logo: '/logos/css3.svg' },
+    { name: 'Oracle DB', logo: '/logos/oracle.svg' },
+    { name: 'SonarQube', logo: '/logos/sonarqube.svg' }
   ];
 </script>
 
@@ -54,43 +39,37 @@
     padding: 2rem;
     text-align: center;
   }
-
   .section-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 3rem;
-    color: #f0f0f0; /* Un color claro para el título */
+    color: #f0f0f0;
   }
-
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem; /* Espacio entre los logos */
+    gap: 2rem;
   }
-
   .skill-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem; /* Espacio entre el logo y el texto */
+    gap: 0.75rem;
     padding: 1rem;
-    background-color: #2d3748; /* Un fondo ligeramente más claro */
+    background-color: #2d3748;
     border-radius: 8px;
-    width: 120px; /* Ancho fijo para cada tarjeta */
+    width: 120px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
-  
   .skill-card:hover {
-    transform: translateY(-5px); /* Efecto de "levantar" al pasar el ratón */
+    transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
   }
-
   .skill-logo {
-    width: 60px;  /* Tamaño del logo */
-    height: 60px; /* Tamaño del logo */
+    width: 60px;
+    height: 60px;
   }
-  
   .skill-card span {
     color: #e2e8f0;
     font-weight: 500;
