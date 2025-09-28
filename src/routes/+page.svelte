@@ -13,8 +13,7 @@
 
   onMount(async () => {
     try {
-      const response = await fetch('https://portfolio-backend-gu9g.onrender.com/api/projects');
-                                    
+      const response = await fetch('https://portfolio-backend-gu9g.onrender.com/api/projects');                          
       if (!response.ok) throw new Error('No se pudo conectar con la API');
       projects = await response.json();
     } catch (e) {
