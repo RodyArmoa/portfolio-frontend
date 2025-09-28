@@ -10,7 +10,7 @@
   import androidstudio_logo from '$lib/assets/logos/androidstudio.svg';
   import postman_logo from '$lib/assets/logos/postman.svg';
   import html_logo from '$lib/assets/logos/html.svg';
-  import css_logo from '$lib/assets/logos/css.svg';
+  import css_logo from '$lib/assets/logos/css3.svg';
   import oracle_logo from '$lib/assets/logos/oracle.svg';
   import sonarqube_logo from '$lib/assets/logos/sonarqube.svg';
   
