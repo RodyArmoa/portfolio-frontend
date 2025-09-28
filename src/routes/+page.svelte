@@ -13,7 +13,7 @@
 
   onMount(async () => {
     try {
-      const response = await fetch('http://localhost:8082/api/projects');
+      const response = await fetch('https://portfolio-backend-g4ng.onrender.com/api/projects');
       if (!response.ok) throw new Error('No se pudo conectar con la API');
       projects = await response.json();
     } catch (e) {
