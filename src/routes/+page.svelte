@@ -1,59 +1,46 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
+  import { onMount } from 'svelte';
+  import ProjectCard from '$lib/components/ProjectCard.svelte';
+  import Hero from '$lib/components/Hero.svelte';
+  import Skills from '$lib/components/Skills.svelte';
+
+  /** @type {any[]} */
+  let projects = [];
+  let isLoading = true;
+  
+  /** @type {string | null} */
+  let error = null;
+
+  onMount(async () => {
+    try {
+      const response = await fetch('http://localhost:8082/api/projects');
+      if (!response.ok) throw new Error('No se pudo conectar con la API');
+      projects = await response.json();
+    } catch (e) {
+      if (e instanceof Error) {
+        error = e.message;
+      }
+    } finally {
+      isLoading = false;
+    }
+  });
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+<main>
+  <Hero />
+  <Skills />
+  <section>
+    <h2>Proyectos Destacados</h2>
+    {#if isLoading}
+      <p>Cargando proyectos...</p>
+    {:else if error}
+      <p style="color: red;">Error: {error}</p>
+    {:else}
+      <div style="display: grid; gap: 1.5rem;">
+        {#each projects as project}
+          <ProjectCard {project} />
+        {/each}
+      </div>
+    {/if}
+  </section>
+</main>
